@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Input } from '../Form/Input'
 import { Button } from '../Form/Button'
 import { useForm } from '../../Hooks/useForm'
-import { TOKEN_POST } from '../../api'
+import { UserContext } from '../../UserContext'
 
 const LoginForm = () => {
     
@@ -11,26 +11,15 @@ const LoginForm = () => {
     const username = useForm('email') //é possível restringir o tipo de input passando como parametro, ex: 'email' - Observar lógica no useForm
     const password = useForm()
 
-    async function getUser(token) {
-
-    }
-
+    //context
+    const{userLogin} = React.useContext(UserContext)
+    
     //Submit
     async function handleSubmit (event) {
         event.preventDefault()
 
         if(username.validadte && password.validadte){
-
-            const {url, options} = TOKEN_POST({
-                username: username.value,
-                password: password.value,
-            });
-
-            const response = await fetch (url,options);
-            const json = await response.json();
-            //enviar json.token para o local storage
-            window.localStorage.setItem('token', json.token)
-            getUser(json.token)
+            userLogin(username.value, password.value)
         }  
     }
 
