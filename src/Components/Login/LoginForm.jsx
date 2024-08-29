@@ -4,6 +4,7 @@ import { Input } from '../Form/Input'
 import { Button } from '../Form/Button'
 import { useForm } from '../../Hooks/useForm'
 import { UserContext } from '../../UserContext'
+import { Error } from '../Interface/Error'
 
 const LoginForm = () => {
     
@@ -12,6 +13,7 @@ const LoginForm = () => {
     const password = useForm()
 
     //context
+    
     const{userLogin} = React.useContext(UserContext)
     
     //Submit
@@ -24,8 +26,8 @@ const LoginForm = () => {
     }
 
     return (
-        <section>
-            <h1>Login</h1>
+        <section className='animeLeft'>
+            <h1 className='title'>Login</h1>
             <form action='' onSubmit={handleSubmit}>
 
                 <Input label='Usuário' type='text' name='username' {...username}/>
