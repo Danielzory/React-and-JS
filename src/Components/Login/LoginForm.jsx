@@ -9,12 +9,12 @@ import { Error } from '../Interface/Error'
 const LoginForm = () => {
     
     //hooks
-    const username = useForm('email') //é possível restringir o tipo de input passando como parametro, ex: 'email' - Observar lógica no useForm
+    const username = useForm() //é possível restringir o tipo de input passando como parametro, ex: 'email' - Observar lógica no useForm
     const password = useForm()
 
     //context
     
-    const{userLogin} = React.useContext(UserContext)
+    const{userLogin, error, loading} = React.useContext(UserContext)
     
     //Submit
     async function handleSubmit (event) {
@@ -32,7 +32,13 @@ const LoginForm = () => {
 
                 <Input label='Usuário' type='text' name='username' {...username}/>
                 <Input label='Senha' type='password' name='password' {...password} />
-                <Button>Entrar</Button>
+                {loading ? (
+                    <Button disabled>Carregando...</Button>
+                ):(
+                    <Button>Entrar</Button>
+                )}
+                
+                {error && <p>{error}</p>}
             
             </form>
             <Link to='/login/criar'>Cadastro</Link>
