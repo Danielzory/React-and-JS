@@ -1,2 +1,10 @@
 {
+    "files.excludes":{
+        "node_modules": true,
+        ".vscode": true,
+        "gitignore": true,
+        "packege.jsob": true,
+        "package-lock.json": true,
+        "public": true
+    }
 }
