@@ -6,6 +6,10 @@ const types = {
         ,
         message: 'Preencha um e-mail válido'
     },
+    password: {
+        regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
+        message: 'A senha não é forte o suficiente'
+    }
 };
 
 const useForm = (type) => {                                       //type será informado como parametro
