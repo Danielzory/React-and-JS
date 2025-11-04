@@ -4,6 +4,7 @@ import Feed from '../Feed/Feed'
 import UserPhotoPost from './UserPhotoPost';
 import UserStatistics from './UserStatistics';
 import {Routes, Route} from 'react-router-dom';
+import { UserContext } from '../../UserContext';
 
 const User = () => {
   const {data} = React.useContext(UserContext);
