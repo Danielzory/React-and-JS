@@ -24,6 +24,7 @@ const Photo = () => {
       <PhotoContent data={data} single={true} />
     </section>
   )
+  else return null
 }
 
 export default Photo
