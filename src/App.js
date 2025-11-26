@@ -10,6 +10,7 @@ import { UserStorage } from './UserContext';
 import ProtectedRoute from './Components/Interface/ProtectedRoute';
 import Photo from './Components/Photo/Photo';
 import UserProfile from './Components/User/UserProfile';
+import NotFount from './Components/NotFount';
 
 function App(){
 
@@ -30,6 +31,7 @@ function App(){
                 />
                 <Route path="foto/:id" element={<Photo />}/>
                 <Route path="perfil/:user" element={<UserProfile />}/>
+                <Route path="*" element={<NotFount />}/>
                 </Routes>
                 <Footer />
             </UserStorage> 
