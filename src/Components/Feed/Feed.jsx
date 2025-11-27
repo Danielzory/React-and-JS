@@ -3,16 +3,6 @@ import FeedModal from './FeedModal'
 import FeedPhotos from './FeedPhotos'
 import PropTypes from 'prop-types'
 
-// tipagem de props
-
-Feed.defaultProps = {
-  user: 0,
-}
-
-Feed.propTypes = {
-  user: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired]),
-}
-
 
 const Feed = ({user}) => {
 
@@ -53,6 +43,14 @@ const Feed = ({user}) => {
         ))}
     </div>
   )
+}
+
+// tipagem de props
+Feed.defaultProps = {
+  user: 0,
+}
+Feed.propTypes = {
+  user: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired]),
 }
 
 export default Feed

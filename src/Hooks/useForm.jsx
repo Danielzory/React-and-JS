@@ -21,7 +21,7 @@ const useForm = (type) => {                                       //type será i
     const [value, setValue] = React.useState('');
     const [error, setError] = React.useState('');
 
-    function validadte (value){
+    function validate (value){
         if (type === false) return true
         if (value.length === 0){
             setError('Preencha um valor')
@@ -37,7 +37,7 @@ const useForm = (type) => {                                       //type será i
 
     function onChange ({target}) {
 
-        if(error) validadte(target.value)
+        if(error) validate(target.value)
         setValue(target.value) //value passa a ser o valor target do evento
         
     }
@@ -49,8 +49,8 @@ const useForm = (type) => {                                       //type será i
         setValue,
         onChange,
         error,
-        validadte: () => validadte (value),
-        onBlur: () => validadte (value),
+        validate: () => validate (value),
+        onBlur: () => validate (value),
     }
 }
 
