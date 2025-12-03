@@ -22,7 +22,7 @@ const LoginForm = () => {
     async function handleSubmit (event) {
         event.preventDefault()
 
-        if(username.validadte && password.validadte){
+        if(username.validate && password.validate){
             userLogin(username.value, password.value)
         }  
     }

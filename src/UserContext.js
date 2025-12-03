@@ -13,9 +13,16 @@ const UserStorage = ({children}) => {
 
     //função recebe token, recupera dados do usuário e seta em data, seta login como true
     async function getUser(token) {
-        const {url, options} = USER_GET(token);
-        const response = await fetch(url, options); 
+        const { url, options } = USER_GET(token);
+        const response = await fetch(url, options);
         const json = await response.json();
+
+        if (!response.ok) {
+
+            setLogin(false);
+            setData(null);
+            throw new Error(json.message);
+        }
 
         setData(json);
         setLogin(true);
@@ -33,25 +40,32 @@ const UserStorage = ({children}) => {
 
 
     //função recebe login e senha, recupera o token, add o token no local storage e mandda o token pro getUser
-    async function userLogin (username, password) {
-        try{
-            setError(null);
-            setLoading(true);
-            const {url, options} = TOKEN_POST({username, password});
-            const tokenRes = await fetch(url, options);
-            if(!tokenRes.ok) throw new Error (`Error: ${tokenRes.statusText}`);
-            const {token} = await tokenRes.json();
-            window.localStorage.setItem('token', token);
-            await getUser(token)
-            navigate('/conta');
-        } catch (err) {
-            setError(err.message)
-            setLogin(false);
-        
-        } finally{
-            setLoading(false)
+    async function userLogin(username, password) {
+    try {
+        setError(null);
+        setLoading(true);
+
+        const { url, options } = TOKEN_POST({ username, password });
+        const tokenRes = await fetch(url, options);
+
+        const json = await tokenRes.json();
+
+        if (!tokenRes.ok) {
+        throw new Error(json.message || "Erro ao realizar login.");
         }
 
+        window.localStorage.setItem('token', json.token);
+
+        await getUser(json.token);
+        navigate('/conta');
+
+    } catch (err) {
+        setError(err.message);
+        setLogin(false);
+
+    } finally {
+        setLoading(false);
+    }
     }
 
     React.useEffect(()=>{
