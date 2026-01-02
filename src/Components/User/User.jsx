@@ -6,12 +6,14 @@ import UserStatistics from './UserStatistics';
 import {Routes, Route} from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 import NotFount from '../NotFount';
+import Head from '../Interface/Head'
 
 const User = () => {
   const {data} = React.useContext(UserContext);
 
   return (
     <section className='container'>
+      <Head title={data ? data.nome : 'Minha Conta'} description={data ? `Conta de ${data.nome}` : ''} />
       <UserHeader />
       <Routes>
         <Route path= '/' element={<Feed user={data.id} />} />

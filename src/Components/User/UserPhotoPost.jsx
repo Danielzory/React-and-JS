@@ -7,6 +7,7 @@ import React from 'react'
 import { PHOTO_POST } from '../../api'
 import {Error} from '../Interface/Error'
 import { useNavigate } from 'react-router-dom'
+import Head from '../Interface/Head'
 
 
 const UserPhotoPost = () => {
@@ -44,6 +45,7 @@ const UserPhotoPost = () => {
 
   return (
     <section className={`${styles.photoPost} animeLeft`}>
+      <Head title="Poste sua Foto" description="Envie uma foto para o Road" />
       <form onSubmit={handleSubmit}>
         <Input label='Nome' type='text' name='nome' {...name}/>
         <Input label='Modelo' type='text' name='peso' {...model}/>

@@ -7,6 +7,7 @@ import { Routes, Route, Navigate} from 'react-router-dom'
 import { UserContext } from '../../UserContext'
 import Styles from './Login.module.css'
 import NotFount from '../NotFount'
+import Head from '../Interface/Head'
 
 const Login = () =>{
     const {login} = React.useContext(UserContext);
@@ -15,6 +16,7 @@ const Login = () =>{
 
     return(
         <section className={Styles.login}>
+            <Head title="Login" description="Faça login no Road" />
             <div className={Styles.forms}>
                 <Routes>
                     <Route path='/' element={<LoginForm />} />

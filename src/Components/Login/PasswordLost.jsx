@@ -4,6 +4,7 @@ import { useForm } from '../../Hooks/useForm'
 import useFetch from '../../Hooks/useFetch'
 import { Error } from '../Interface/Error'
 import { PASSWORD_LOST } from '../../api'
+import Head from '../Interface/Head'
 
 const PasswordLost = () => {
 
@@ -23,6 +24,7 @@ const PasswordLost = () => {
 
   return (
     <section>
+      <Head title="Perdeu a Senha?" description="Recupere sua senha no Road" />
       <h1 className='title'>Perdeu a Senha?</h1>
 
       {data ? (

@@ -6,6 +6,7 @@ import { Error } from '.././Interface/Error';
 import { UserContext } from '../../UserContext'
 import { USER_POST } from '../../api';
 import useFetch from '../../Hooks/useFetch';
+import Head from '../Interface/Head';
 
 const LoginCreate = () =>{
     const username = useForm();
@@ -28,6 +29,7 @@ const LoginCreate = () =>{
 
     return(
         <section className='animeLeft'>
+          <Head title="Crie sua conta" description="Cadastre-se no Road para compartilhar suas fotos" />
             <h1 className='title'>Cadastre-se</h1>
             <form onSubmit={handleSubmit}>
                 <Input label='Usuario' type="text" name='username' {...username} />

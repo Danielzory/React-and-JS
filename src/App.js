@@ -11,6 +11,15 @@ import ProtectedRoute from './Components/Interface/ProtectedRoute';
 import Photo from './Components/Photo/Photo';
 import UserProfile from './Components/User/UserProfile';
 import NotFount from './Components/NotFount';
+import { useLocation } from 'react-router-dom'
+
+function LocationLogger(){
+  const location = useLocation()
+  React.useEffect(()=>{
+    console.debug('Route change', { pathname: location.pathname, search: location.search })
+  }, [location])
+  return null
+}
 
 function App(){
 
