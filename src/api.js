@@ -141,4 +141,16 @@ export function PASSWORD_RESET (body) {
   };
 }
 
+export function GET_STATISTICS () {
+  return {
+    url: `${API_URL}/api/stats`,
+    options: {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+      },
+    },
+  };
+}
+
 
