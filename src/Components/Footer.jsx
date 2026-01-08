@@ -6,7 +6,7 @@ import logo from '../Assets/logo-moto-24.png'
     return <footer className={styles.footer} >
       <p>
         <img src={logo} alt="Moto24 logo" className={styles.logo} />
-        Road. Todos os direitos reservados @Zory
+        Road. Alguns direitos reservados @Zory
       </p>
     </footer>
   };
