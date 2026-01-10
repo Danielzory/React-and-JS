@@ -28,11 +28,11 @@ const UserStatisticsGraphs = ({data}) => {
     }, [data])
 
   return (
-    <section className={`${styles.graphSection} animeLeft`}>
-      <div className={styles.total}>
+    <section className={`${styles.graph} animeLeft`}>
+      <div className={`${styles.total} ${styles.graphItem}`}>
         <p>Acessos: {total}</p>
       </div>
-      <div>
+      <div className= {styles.graphItem}>
         {graph.length ? (
           <VictoryPie 
               data={graph}
@@ -45,7 +45,7 @@ const UserStatisticsGraphs = ({data}) => {
                       strokeWidth: 2,
                   },
                   labels: {
-                      fontSize: 14,
+                      fontSize: 12,
                       fill: '#333'
                   }
               }}
@@ -53,6 +53,11 @@ const UserStatisticsGraphs = ({data}) => {
         ) : (
           <p style={{textAlign: 'center', color: '#666'}}>Sem dados para o gráfico</p>
         )}
+      </div>
+      <div className= {styles.graphItem}>
+        <VictoryChart>
+          <VictoryBar alignment='start' data={graph} />
+        </VictoryChart>
       </div>
     </section>
   )
