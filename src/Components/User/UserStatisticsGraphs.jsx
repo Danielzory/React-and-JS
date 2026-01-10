@@ -28,11 +28,19 @@ const UserStatisticsGraphs = ({data}) => {
     }, [data])
 
   return (
+<<<<<<< HEAD
     <section className={`${styles.graph} animeLeft`}>
       <div className={`${styles.total} ${styles.graphItem}`}>
         <p>Acessos: {total}</p>
       </div>
       <div className= {styles.graphItem}>
+=======
+    <section className={`${styles.graphSection} animeLeft`}>
+      <div className={styles.total}>
+        <p>Acessos: {total}</p>
+      </div>
+      <div>
+>>>>>>> 803339cdddeb0dc7464e6d401b0e70460e0ecb94
         {graph.length ? (
           <VictoryPie 
               data={graph}
@@ -45,7 +53,11 @@ const UserStatisticsGraphs = ({data}) => {
                       strokeWidth: 2,
                   },
                   labels: {
+<<<<<<< HEAD
                       fontSize: 12,
+=======
+                      fontSize: 14,
+>>>>>>> 803339cdddeb0dc7464e6d401b0e70460e0ecb94
                       fill: '#333'
                   }
               }}
@@ -54,11 +66,14 @@ const UserStatisticsGraphs = ({data}) => {
           <p style={{textAlign: 'center', color: '#666'}}>Sem dados para o gráfico</p>
         )}
       </div>
+<<<<<<< HEAD
       <div className= {styles.graphItem}>
         <VictoryChart>
           <VictoryBar alignment='start' data={graph} />
         </VictoryChart>
       </div>
+=======
+>>>>>>> 803339cdddeb0dc7464e6d401b0e70460e0ecb94
     </section>
   )
 }

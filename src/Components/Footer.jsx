@@ -1,19 +1,15 @@
+import React from 'react';
 import styles from './Footer.module.css';
-import { ReactComponent as Logo } from '../Assets/loading.svg';
+// A sintaxe correta para CRA é esta:
+import { ReactComponent as Logo } from '../Assets/carregando.svg';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
-        <Logo className={styles.logo} title="Carregando Logo" />
-        <p>
-          Road. Alguns direitos reservados @Zory {currentYear}
-        </p>
-      </div>
+      <Logo className={styles.logoReact} aria-label="Logo Carregando" />
+      <p>Road. Alguns direitos reservados @Zory</p>
     </footer>
   );
 };
 
-export {Footer}
+export {Footer};
